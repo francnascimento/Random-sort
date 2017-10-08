@@ -3,7 +3,6 @@ import java.util.Scanner;
 class Random{
 
     public static void randomSort(int[] vetor){
-        double t = (double) vetor.length;
         long a = 0;
         while(!ordenado(vetor)){
             for(int i = 0; i < vetor.length-1; i++){
@@ -57,5 +56,7 @@ class Random{
         long elapsedTime = System.nanoTime() - startTime;
         double tempo = (double) elapsedTime/1000000000;
         System.out.println("\nElapsed time: " + tempo + " seconds.");
+
+        scanner.close();
     }
 }
