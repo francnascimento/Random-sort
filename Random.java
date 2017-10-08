@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Random{
 
     public static void randomSort(int[] vetor){
@@ -12,12 +14,15 @@ class Random{
             }
             a++;
         }
-
+        System.out.println("\nIn order:");
         for(int i = 0; i < vetor.length; i++){
             System.out.print(vetor[i] + " ");
         }
-        System.out.print("\nO numero de tentativas foi: " + a);
-        System.out.println("\nA chance de isso acontecer foi: " + (binomial(t,a))*100 + "%" );
+        if(a == 0){
+            System.out.println("\nArray was created already in order!");
+        }else{
+            System.out.println("\nThe number of attempts were: " + a);
+        }
     }
 
     public static boolean ordenado(int [] vetor){
@@ -30,45 +35,27 @@ class Random{
         return sorted;
     }
 
-    public static double binomial(double t, long vezes){
-        double b;
-        double p = fatorial(t);
-        //System.out.println(p);
-        //return vezes * p * Math.pow(1-p, vezes-1);
-        return 1 - (Math.pow(1-p, vezes));
+    public static int[] randomArray(int size){
+        System.out.println("The array is:");
+        int[] rArray = new int[size];
+        for(int i = 0; i<size; i++){
+            rArray[i] = (int) (Math.random()*100);
+            System.out.print(rArray[i] + " ");
+        }
+        return rArray;
     }
-
-
-
-
-    public static double fatorial(double num){
-        if(num <= 1) return 1;
-        else return (1/num)*fatorial(num-1);
-    }
-
-
-
-
-
-
 
     public static void main(String[] args){
-        //System.out.println((int) (Math.random()*50 ) );
-        int[] num = new int[12];
-        double t = (double) num.length;
-        for(int i = 0; i<num.length; i++){
-            num[i] = (int) (Math.random()*50);
-            System.out.println(num[i]);
-        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What array size do you want?\nWARNING: SIZES ABOVE 12 MIGHT TAKE A WHILE");
+        int size = scanner.nextInt();
+
         long startTime = System.nanoTime();
-        randomSort(num);
+
+        randomSort(randomArray(size));
+
         long elapsedTime = System.nanoTime() - startTime;
         double tempo = (double) elapsedTime/1000000000;
-        System.out.println("\nTempo decorrido: " + tempo + " segundos.");
-        //System.out.println( (binomial(t, 40658))*100 + "%");
-
-
-
-
+        System.out.println("\nElapsed time: " + tempo + " seconds.");
     }
 }
