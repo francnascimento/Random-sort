@@ -8,9 +8,8 @@ class Binomio{
     }
 
 	private static int factorial(int i) {
-        if(i == 0) {
-            return 1;
-        }
+        if(i == 0) return 1;
+        System.out.println(i);
         int product = 1;
         for(int j = 1; j<=i; j++){
             product *= j;
