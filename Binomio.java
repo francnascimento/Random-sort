@@ -11,7 +11,7 @@ class Binomio{
         if(i == 0) {
             return 1;
         }
-            int product = 1;
+        int product = 1;
         for(int j = 1; j<=i; j++){
             product *= j;
         }
