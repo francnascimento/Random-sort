@@ -54,7 +54,7 @@ class Random{
         randomSort(randomArray(size));
 
         long elapsedTime = System.nanoTime() - startTime;
-        double tempo = (double) elapsedTime/1000000000;
+        double tempo = (double) (elapsedTime/1000000000);
         System.out.println("\nElapsed time: " + tempo + " seconds.");
 
         scanner.close();
